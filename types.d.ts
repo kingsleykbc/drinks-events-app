@@ -2,11 +2,11 @@ export interface EventType {
 	id: number;
 	time: string;
 	title: string;
-	creator: User;
-	guests: User[];
+	creator: UserType;
+	guests: UserType[];
 	type: 'BEERS' | 'COCKTAILS' | 'COFFEES' | 'MILKSHAKES';
-	location: EventLocation;
-	comments: EventComment[];
+	location: EventLocationType;
+	comments: EventCommentType[];
 }
 
 export interface EventLocationType {
@@ -16,7 +16,7 @@ export interface EventLocationType {
 }
 
 export interface EventCommentType {
-	user: User;
+	user: UserType;
 	timestamp: string;
 	message: string;
 }
