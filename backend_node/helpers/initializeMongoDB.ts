@@ -9,4 +9,4 @@ mongoose
 	.then(() => console.log('Mongo DB Connected'))
 	.catch(e => console.log('Error connecting to Mongo DB: ', e.message));
 
-mongoose.connection.close();
+// mongoose.connection.close();

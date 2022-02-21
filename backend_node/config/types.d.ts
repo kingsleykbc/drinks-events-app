@@ -1,4 +1,4 @@
-export interface Event {
+export interface EventType {
 	id: number;
 	time: string;
 	title: string;
@@ -9,19 +9,19 @@ export interface Event {
 	comments: EventComment[];
 }
 
-export interface EventLocation {
+export interface EventLocationType {
 	name: string;
 	latitude: number;
 	longitude: number;
 }
 
-export interface EventComment {
+export interface EventCommentType {
 	user: User;
 	timestamp: string;
 	message: string;
 }
 
-export interface User {
+export interface UserType {
 	name: string;
 	avatarUrl: string;
 }

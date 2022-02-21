@@ -1,20 +1,26 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import events from './apis/events.api';
+import retrieveEvents from './jobs/retrieveEvents';
+declare function require(name: string): any;
+const cron = require('node-cron');
 
+// Initialize Global variables
+import dotenv from 'dotenv';
 dotenv.config();
+
+// Connect to DB
 import './helpers/initializeMongoDB';
 
-import events from './apis/events.api';
-
+// APIs
 const api = express();
-
 api.use(express.json());
 api.use('/events', events);
+api.get('/', (req, res) => res.redirect('https://drinks-events-app.netlify.app'));
 
-api.get('/', (req, res) => {
-	res.send('Well done!');
+// Start server
+api.listen(process.env.PORT, () => {
+	console.log(`The application is listening on port ${process.env.PORT}!`);
 });
 
-api.listen(8080, () => {
-	console.log('The application is listening on port 3000!');
-});
+// Retrieve events every 3 hours (scheduled)
+cron.schedule('0 0 */3 * * *', () => retrieveEvents());

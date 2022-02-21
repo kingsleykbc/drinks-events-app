@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { getEvent, getEvents } from '../controllers/events.controller';
+import { validateAuth } from '../middlewares/validateAuth';
 const api = Router();
 
-// All events
-api.get('/', getEvents);
+// Return all events
+api.get('/', validateAuth, getEvents);
 
-// Specific event
-api.get('/:eventID', getEvent);
+// Return a specific event
+api.get('/:eventID', validateAuth, getEvent);
 
 export default api;

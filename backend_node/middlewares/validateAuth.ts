@@ -9,6 +9,6 @@ export const validateAuth: RequestHandler = async (req: Request, res: Response, 
 		if (apiKeys.indexOf(apiKey) === -1) throw Error('Invalid API key.');
 		next();
 	} catch (e: any) {
-		res.status(401).json({ message: `Unauthorized :( ${e.message || 'Enter valid API key.'}.` });
+		res.status(401).json({ message: `Unauthorized : ${e.message || 'Enter valid API key.'}` });
 	}
 };
