@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { EventType } from '../../types';
+import { EventType } from '../config/types';
 import Event from '../models/events.model';
 
 // Get the events from the external API and store them in MongoDB
