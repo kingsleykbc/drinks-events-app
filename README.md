@@ -31,6 +31,7 @@ For this assessment, the following tools/languages were used:
 - Node.js: Framework
 - Axios: API call
 - Node-cron: Scheduling
+- **Heroku: Hosting**
 
 **Frontend**
 - Next.js: Framework
@@ -38,3 +39,4 @@ For this assessment, the following tools/languages were used:
 - styled-jsx: Scoped CSS engine for Next.js
 - React-icons: Site Icons
 - Axios: API call
+- **Netlify: Hosting**
