@@ -27,7 +27,7 @@ api.use(cors());
 api.use(helmet());
 api.use(express.json());
 api.use('/events', events);
-api.get('/', (req, res) => res.redirect('https://drinks-events-app.netlify.app'));
+api.get('/', (req, res) => res.redirect('https://siliconrhino-drinks.netlify.app/'));
 
 // Start server
 api.listen(process.env.PORT, () => {
