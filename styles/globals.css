@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Titillium+Web:wght@200&display=swap');
+
+html,
+body {
+	font-family: 'Mulish', 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background: var(--primaryColor);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	transition: background 0.2s linear;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+}
+
+li {
+	list-style-type: none;
+}
+
+p {
+	line-height: 27px;
+}
+
+.button,
+button {
+	background: var(--primaryColor);
+	border: none;
+	font-weight: bold;
+	padding: 14px 25px;
+	border-radius: 25px;
+	font-size: 1rem;
+	color: #fff;
+	cursor: pointer;
+	transition: transform ease-out 0.25s;
+	box-shadow: var(--boxShadow);
+}
+
+.button:hover,
+button:hover {
+	transform: scale(1.07);
+}
+
+.skeleton {
+	background: var(--faintColor);
+	border-radius: 6px;
+	animation: flash 2s steps(5, start) infinite;
+}
+@keyframes flash {
+	from {
+		opacity: 0.5;
+	}
+	50% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.5;
+	}
+}
