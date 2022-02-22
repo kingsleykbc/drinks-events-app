@@ -1,8 +1,10 @@
 import express from 'express';
 import events from './apis/events.api';
 import retrieveEvents from './jobs/retrieveEvents';
+import helmet from 'helmet';
 declare function require(name: string): any;
 const cron = require('node-cron');
+const cors = require('cors');
 
 // Initialize Global variables
 import dotenv from 'dotenv';
@@ -13,6 +15,16 @@ import './helpers/initializeMongoDB';
 
 // APIs
 const api = express();
+
+// Setup cors
+api.all('*', (req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', '*');
+	res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+	next();
+});
+api.use(cors());
+api.use(helmet());
 api.use(express.json());
 api.use('/events', events);
 api.get('/', (req, res) => res.redirect('https://drinks-events-app.netlify.app'));

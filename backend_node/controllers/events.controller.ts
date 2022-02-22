@@ -23,7 +23,7 @@ export const getEvents = async (req: Request, res: Response) => {
 		if (type?.trim()) filter.type = type;
 
 		// Retrieve events
-		const events = await Event.find(filter, { title: 1, id: 1, time: 1, category: 1 });
+		const events = await Event.find(filter, { title: 1, id: 1, time: 1, type: 1 });
 		res.json(events);
 	} catch (e) {
 		res.status(500).send('Internal Server Error');
